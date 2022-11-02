@@ -4,6 +4,7 @@
 
 kafka:
   replicas: 3
+  allowAutoCreate: true
   affinity:
     nodeAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
