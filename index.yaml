@@ -1,2 +1,14 @@
 apiVersion: v1
 entries:
+  logscale-strimzi-kafka:
+  - apiVersion: v2
+    appVersion: 1.3.1
+    created: "2023-01-13T13:58:59.864351838Z"
+    description: A Helm chart for Kubernetes
+    digest: 1e8c57bbe681f672f22f02a7ee4687de510bda61788d403ef038dc2af37f3575
+    name: logscale-strimzi-kafka
+    type: application
+    urls:
+    - https://github.com/logscale-contrib/helm-logscale-strimzi-kafka/releases/download/v1.3.1/logscale-strimzi-kafka-1.3.1.tgz
+    version: 1.3.1
+generated: "2023-01-13T13:58:59.863688787Z"
