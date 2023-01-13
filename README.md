@@ -1,0 +1,1 @@
+# Helm chart to create a strimzi cluster for logscale
