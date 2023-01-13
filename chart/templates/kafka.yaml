@@ -17,6 +17,10 @@ spec:
         affinity:
           {{- toYaml . | nindent 10 }}
         {{- end }}  
+        {{- with .Values.kafka.tolerations }}
+        tolerations:
+          {{- toYaml . | nindent 10 }}
+        {{- end }}          
     resources:
       {{- toYaml .Values.kafka.resources | nindent 6 }}    
     config:
@@ -48,6 +52,10 @@ spec:
         affinity:
           {{- toYaml . | nindent 10 }}
         {{- end }}  
+        {{- with .Values.zookeeper.tolerations }}
+        tolerations:
+          {{- toYaml . | nindent 10 }}
+        {{- end }}          
     resources:
       {{- toYaml .Values.zookeeper.resources | nindent 6 }}    
     replicas: {{ .Values.zookeeper.replicas }}
