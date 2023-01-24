@@ -29,7 +29,7 @@ spec:
       default.replication.factor: 2
       offsets.topic.replication.factor: 2
       transaction.state.log.min.isr: 1
-      transaction.state.log.replication.facto: 2
+      transaction.state.log.replication.factor: 2
     listeners:
       - name: plain
         port: 9092
