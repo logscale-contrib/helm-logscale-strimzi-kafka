@@ -23,7 +23,7 @@ spec:
     resources:
       {{- toYaml .Values.kafka.resources | nindent 6 }}    
     config:
-      auto.create.topics.enable: {{ .Values.kafka.allowAutoCreate | default "false" | quote }}
+      auto.create.topics.enable: {{ .Values.kafka.allowAutoCreate | default false }}
       default.replication.factor: 2
       offsets.topic.replication.factor: 2
       transaction.state.log.min.isr: 1
