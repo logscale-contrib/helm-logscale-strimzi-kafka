@@ -49,6 +49,13 @@ spec:
         type: internal
         authentication:
           type: tls
+      - name: scram
+        port: 9094
+        tls: false
+        type: internal
+        authentication:
+          type: scram-sha-512
+
 
     replicas: {{ .Values.kafka.replicas }}
     storage:
