@@ -12,8 +12,8 @@ spec:
     userOperator: 
       watchedNamespace: {{.Release.namespace}}
   kafka:
-    rack:
-      topologyKey: topology.kubernetes.io/zone
+    # rack:
+    #   topologyKey: topology.kubernetes.io/zone
     template:
       pod:
         {{- with .Values.kafka.affinity }}
@@ -36,7 +36,7 @@ spec:
       offsets.topic.replication.factor: 2
       transaction.state.log.min.isr: 1
       transaction.state.log.replication.factor: 2
-      replica.selector.class: org.apache.kafka.common.replica.RackAwareReplicaSelector
+      # replica.selector.class: org.apache.kafka.common.replica.RackAwareReplicaSelector
 
     listeners:
       - name: plain
