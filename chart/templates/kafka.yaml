@@ -7,8 +7,10 @@ metadata:
 spec:
   cruiseControl: {}
   entityOperator:
-    topicOperator: {}
-    userOperator: {}
+    topicOperator:
+      watchedNamespace: {{.Release.namespace}}
+    userOperator: 
+      watchedNamespace: {{.Release.namespace}}
   kafka:
     template:
       pod:
