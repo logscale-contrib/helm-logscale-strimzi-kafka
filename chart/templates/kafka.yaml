@@ -5,6 +5,8 @@ metadata:
   labels:
     {{- include "logscale-strimzi-kafka.labels" . | nindent 4 }}
 spec:
+  rack:
+    topologyKey: topology.kubernetes.io/zone
   cruiseControl: {}
   entityOperator:
     topicOperator:
