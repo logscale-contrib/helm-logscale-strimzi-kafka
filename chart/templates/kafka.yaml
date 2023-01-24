@@ -23,7 +23,11 @@ spec:
           {{- toYaml . | nindent 10 }}
         {{- end }}          
     resources:
-      {{- toYaml .Values.kafka.resources | nindent 6 }}    
+      {{- toYaml .Values.kafka.resources | nindent 6 }}   
+    authorization:
+      type: simple  
+      superUsers:
+        - lsadmin     
     config:
       auto.create.topics.enable: {{ .Values.kafka.allowAutoCreate | default false }}
       default.replication.factor: 2
