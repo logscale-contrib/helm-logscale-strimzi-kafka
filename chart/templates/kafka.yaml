@@ -24,10 +24,10 @@ spec:
         {{- end }}          
     resources:
       {{- toYaml .Values.kafka.resources | nindent 6 }}   
-    authorization:
-      type: simple  
-      superUsers:
-        - lsadmin     
+    # authorization:
+    #   type: simple  
+    #   superUsers:
+    #     - lsadmin     
     config:
       min.insync.replicas: 2
       auto.create.topics.enable: {{ .Values.kafka.allowAutoCreate | default false }}
@@ -49,12 +49,12 @@ spec:
         type: internal
         authentication:
           type: tls
-      - name: external
-        port: 9094
-        tls: false
-        type: cluster-ip
-        authentication:
-          type: scram-sha-512
+      # - name: external
+      #   port: 9094
+      #   tls: false
+      #   type: cluster-ip
+      #   authentication:
+      #     type: scram-sha-512
 
 
     replicas: {{ .Values.kafka.replicas }}
