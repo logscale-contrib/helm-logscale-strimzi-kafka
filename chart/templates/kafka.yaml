@@ -49,10 +49,10 @@ spec:
         type: internal
         authentication:
           type: tls
-      - name: scram
+      - name: external
         port: 9094
-        tls: false
-        type: internal
+        tls: true
+        type: route
         authentication:
           type: scram-sha-512
 
