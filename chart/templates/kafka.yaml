@@ -52,7 +52,7 @@ spec:
       - name: external
         port: 9094
         tls: true
-        type: route
+        type: cluster-ip
         authentication:
           type: scram-sha-512
 
