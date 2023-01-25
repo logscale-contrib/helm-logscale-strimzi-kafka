@@ -23,13 +23,21 @@ spec:
           {{- toYaml . | nindent 10 }}
         {{- end }}          
     resources:
-      {{- toYaml .Values.kafka.resources | nindent 6 }}    
+      {{- toYaml .Values.kafka.resources | nindent 6 }}   
+    # authorization:
+    #   type: simple  
+    #   superUsers:
+    #     - lsadmin     
     config:
+      min.insync.replicas: 2
       auto.create.topics.enable: {{ .Values.kafka.allowAutoCreate | default false }}
       default.replication.factor: 2
       offsets.topic.replication.factor: 2
       transaction.state.log.min.isr: 1
       transaction.state.log.replication.factor: 2
+      replica.selector.class: org.apache.kafka.common.replica.RackAwareReplicaSelector
+    rack:
+      topologyKey: topology.kubernetes.io/zone
     listeners:
       - name: plain
         port: 9092
@@ -41,6 +49,13 @@ spec:
         type: internal
         authentication:
           type: tls
+      # - name: external
+      #   port: 9094
+      #   tls: false
+      #   type: cluster-ip
+      #   authentication:
+      #     type: scram-sha-512
+
 
     replicas: {{ .Values.kafka.replicas }}
     storage:
