@@ -37,7 +37,8 @@ spec:
       offsets.topic.replication.factor: 2
       transaction.state.log.min.isr: 1
       transaction.state.log.replication.factor: 2
-      replica.selector.class: org.apache.kafka.common.replica.RackAwareReplicaSelector
+      # We will enable rack aware replication in the future curent issue with operator chart
+      # replica.selector.class: org.apache.kafka.common.replica.RackAwareReplicaSelector
     rack:
       topologyKey: topology.kubernetes.io/zone
     listeners:
