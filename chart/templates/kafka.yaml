@@ -51,7 +51,7 @@ spec:
           type: tls
       - name: external
         port: 9094
-        tls: true
+        tls: false
         type: cluster-ip
         authentication:
           type: scram-sha-512
