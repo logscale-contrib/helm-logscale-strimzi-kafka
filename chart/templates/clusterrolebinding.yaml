@@ -9,4 +9,4 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: {{ include "logscale-strimzi-kafka.fullname" . }}-kafka
-  namespace: logscale-ops
+  namespace: {{ .Release.Namespace }}
