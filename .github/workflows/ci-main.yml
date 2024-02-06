@@ -21,7 +21,7 @@ jobs:
         with:
           submodules: false
           persist-credentials: false
-      # These steps are quick and will work or if fail only because of external issues
+
       - name: Login to ghcr for helm
         run: |
           echo ${{ secrets.GITHUB_TOKEN }} | helm registry login --password-stdin -u ${{ github.repository_owner }} ghcr.io/${{ github.repository_owner }}
@@ -30,16 +30,21 @@ jobs:
         with:
           node-version: "18"
       - uses: azure/setup-helm@v3
+
       - name: Semantic Release
         if: github.event_name != 'pull_request'
         id: version
-        uses: cycjimmy/semantic-release-action@v3.2.0
+        uses: cycjimmy/semantic-release-action@v3.4.2
         with:
-          semantic_version: 19
+          semantic_version: 19.0.5
           extra_plugins: |
-            @semantic-release/exec
-            @semantic-release/git
-            conventional-changelog-conventionalcommits
+            @semantic-release/commit-analyzer@9.0.2
+            @semantic-release/release-notes-generator@10.0.3
+            @semantic-release/git@10.0.1
+            @semantic-release/github@8.1.0
+            @semantic-release/changelog@6.0.3
+            conventional-changelog-conventionalcommits@6.1.0
+            @semantic-release/exec@6.0.3     
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REGISTRY_USERNAME: ${{ github.repository_owner }}
