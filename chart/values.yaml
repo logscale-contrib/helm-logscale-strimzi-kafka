@@ -18,6 +18,12 @@ kafka:
                 operator: In
                 values:
                   - linux
+  listeners:
+    internal:
+      plain:
+        enabled: true
+      tls:
+        enabled: true
   resources:
     requests:
       memory: 3Gi
